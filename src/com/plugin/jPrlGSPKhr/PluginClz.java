@@ -11,7 +11,11 @@ public class PluginClz {
 
     public String test(){
 //           System.out.println("--- test method");
+
+
+        System.out.println(111);
            return "我是测试方法";
     }
+
 
 }
