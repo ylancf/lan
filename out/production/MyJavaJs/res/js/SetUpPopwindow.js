@@ -24,15 +24,12 @@ let PopSetUp=function (){
     initSetPuPopWP();
 
     this.show = function (_view,callback) {
-        logd("准备异常");
-        let thisText=_view.findViewWithTag("summary").getText();
-        logd(thisText);
-       // const strToObj = JSON.parse();
-        logd("没异常");
-        // set_title.setTitle(_view.findViewWithTag(title).getText());
-        // start_time.setText(strToObj.时间);
-        // run_time.setText(strToObj.时长);
-        // run_number.setText(strToObj.次数);
+
+        let setList=_view.findViewWithTag("summary").getText().split(",");
+        set_title.setText(_view.findViewWithTag("title").getText());
+        start_time.setText(setList[0].split(":",2)[1]); //显示开始时间
+        run_time.setText(setList[1].split(":",2)[1]);  //显示运行时长
+        run_number.setText(setList[2].split(":",2)[1]);//显示运行次数
         pw.showAtLocation(activity.getWindow().getDecorView(), Gravity.CENTER, 0, 0); //在父级layout的中心显示 偏差 0 0
         Attributes(0.6);
         mCallback = callback;

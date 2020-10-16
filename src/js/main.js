@@ -38,8 +38,10 @@ function main() {
 
      let obj=new com.plugin.jPrlGSPKhr.PluginClz();
      logd(obj.test());*/
-
-
+    var s="g,"
+    var  h=s.split(",",2);
+    logd(h.length)
+    logd(h[1]);
 
 
 

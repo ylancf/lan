@@ -2,11 +2,11 @@
 //公共脚本界面
 
 let comm_items;
-
+let popSetUp
 function commObject() {
 
     comm_items = initCommConfig('commItems');//本地保存的列表
-
+    popSetUp= new PopSetUp(); //不能循环new  会出错
     //初始化ListView
     initCommListView();
 
@@ -63,7 +63,7 @@ function  initCommListView(){
     list.setContentView('comJavaScriptList.xml', (itemView, item, position) => {
         //设置参数
         itemView.setViewValue('title', item.title);
-        itemView.setViewValue('summary', item.summary==""?"{'时间':'','时长':'','次数':'' }":item.summary);
+        itemView.setViewValue('summary', item.summary==""?"时间:,时长:,次数:":item.summary);
         itemView.setViewValue('done', item.done);
         itemView.setViewValue('id_number', item.id_number);
 
@@ -89,9 +89,8 @@ function  initCommListView(){
         //根布局长按事件
         itemView.view.setOnLongClickListener({
             onLongClick: function () {
-               let popSetUp= new PopSetUp();
                popSetUp.show(itemView.view,function (result,_date,r_time,r_number){
-                   let str="{'时间':"+_date+",'时长':"+r_time+",'次数':"+r_number+" }"
+                   let str="时间:"+_date+",时长:"+r_time+",次数:"+r_number
                    itemView.setViewValue('summary',str);
                })
                 return false;
