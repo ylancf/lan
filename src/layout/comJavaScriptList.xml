@@ -54,7 +54,7 @@
                 <TextView android:tag="summary"
                           android:textColor="#999999"
                           android:textSize="14sp"
-                          android:text="{'时间':'','时长':'','次数':'' }"
+                          android:text="时间:,时长:,次数:"
                           android:maxLines="1"/>
                 <TextView android:tag="id_number"
                           android:visibility="gone"
